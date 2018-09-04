@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Graphics2D;
+import android.awt.Graphics2D;
 import java.util.ListIterator;
 
 /**

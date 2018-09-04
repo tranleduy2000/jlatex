@@ -48,8 +48,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
+import android.awt.Font;
+import android.awt.GraphicsEnvironment;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;

@@ -46,8 +46,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
+import android.awt.Graphics2D;
+import android.awt.geom.AffineTransform;
 
 /**
  * A box representing another box with a delimiter box and a script box above or under it,

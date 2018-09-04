@@ -45,12 +45,11 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.font.TextAttribute;
-import java.awt.font.TextLayout;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
+import android.awt.Font;
+import android.awt.Graphics2D;
+import android.awt.font.TextLayout;
+import android.awt.geom.Rectangle2D;
+import android.awt.image.BufferedImage;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -65,29 +64,30 @@ public class JavaFontRenderingBox extends Box {
 
     private TextLayout text;
     private float size;
-    private static TextAttribute KERNING;
-    private static Integer KERNING_ON;
-    private static TextAttribute LIGATURES;
-    private static Integer LIGATURES_ON;
+//    private static TextAttribute KERNING;
+//    private static Integer KERNING_ON;
+//    private static TextAttribute LIGATURES;
+//    private static Integer LIGATURES_ON;
 
-    static {
-        try { // to avoid problems with Java 1.5
-            KERNING = (TextAttribute) (TextAttribute.class.getField("KERNING").get(TextAttribute.class));
-            KERNING_ON = (Integer) (TextAttribute.class.getField("KERNING_ON").get(TextAttribute.class));
-            LIGATURES = (TextAttribute) (TextAttribute.class.getField("LIGATURES").get(TextAttribute.class));
-            LIGATURES_ON = (Integer) (TextAttribute.class.getField("LIGATURES_ON").get(TextAttribute.class));
-        } catch (Exception e) { }
-    }
+//    static {
+//        try { // to avoid problems with Java 1.5
+//            KERNING = (TextAttribute) (TextAttribute.class.getField("KERNING").get(TextAttribute.class));
+//            KERNING_ON = (Integer) (TextAttribute.class.getField("KERNING_ON").get(TextAttribute.class));
+//            LIGATURES = (TextAttribute) (TextAttribute.class.getField("LIGATURES").get(TextAttribute.class));
+//            LIGATURES_ON = (Integer) (TextAttribute.class.getField("LIGATURES_ON").get(TextAttribute.class));
+//        } catch (Exception e) { }
+//    }
 
     public JavaFontRenderingBox(String str, int type, float size, Font f, boolean kerning) {
         this.size = size;
 
-        if (kerning && KERNING != null) {
-            Map<TextAttribute, Object> map = new Hashtable<TextAttribute, Object>();
-            map.put(KERNING, KERNING_ON);
-            map.put(LIGATURES, LIGATURES_ON);
-            f = f.deriveFont(map);
-        }
+        // todo: think of kerning (how, why and what it is)
+//        if (kerning && KERNING != null) {
+//            Map<TextAttribute, Object> map = new Hashtable<TextAttribute, Object>();
+//            map.put(KERNING, KERNING_ON);
+//            map.put(LIGATURES, LIGATURES_ON);
+//            f = f.deriveFont(map);
+//        }
 
         this.text = new TextLayout(str, f.deriveFont(type), TEMPGRAPHIC.getFontRenderContext());
         Rectangle2D rect = text.getBounds();

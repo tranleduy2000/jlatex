@@ -48,13 +48,13 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+import android.awt.Color;
+import android.awt.Graphics2D;
+import android.awt.GraphicsEnvironment;
+import android.awt.Image;
+import android.awt.Insets;
+import android.awt.Toolkit;
+import android.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,8 +65,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageOutputStream;
+//import javax.imageio.ImageIO;
+//import javax.imageio.stream.FileImageOutputStream;
 
 /**
  * Represents a logical mathematical formula that will be displayed (by creating a
@@ -374,7 +374,7 @@ public class TeXFormula {
     }
 
     /**
-     * @param a formula
+     * @param formula
      * @return a partial TeXFormula containing the valid part of formula
      */
     public static TeXFormula getPartialTeXFormula(String formula) {
@@ -824,97 +824,97 @@ public class TeXFormula {
         return new TeXIconBuilder().setStyle(style).setSize(size).setType(type).setWidth(widthUnit, textwidth, align).setInterLineSpacing(interlineUnit, interline).build();
     }
 
-    public void createImage(String format, int style, float size, String out, Color bg, Color fg, boolean transparency) {
-        TeXIcon icon = createTeXIcon(style, size);
-        icon.setInsets(new Insets(1, 1, 1, 1));
-        int w = icon.getIconWidth(), h = icon.getIconHeight();
+//    public void createImage(String format, int style, float size, String out, Color bg, Color fg, boolean transparency) {
+//        TeXIcon icon = createTeXIcon(style, size);
+//        icon.setInsets(new Insets(1, 1, 1, 1));
+//        int w = icon.getIconWidth(), h = icon.getIconHeight();
+//
+//        BufferedImage image = new BufferedImage(w, h, transparency ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
+//        Graphics2D g2 = image.createGraphics();
+//        if (bg != null && !transparency) {
+//            g2.setColor(bg);
+//            g2.fillRect(0, 0, w, h);
+//        }
+//
+//        icon.setForeground(fg);
+//        icon.paintIcon(null, g2, 0, 0);
+//        try {
+//            FileImageOutputStream imout = new FileImageOutputStream(new File(out));
+//            ImageIO.write(image, format, imout);
+//            imout.flush();
+//            imout.close();
+//        } catch (IOException ex) {
+//            System.err.println("I/O error : Cannot generate " + out);
+//        }
+//
+//        g2.dispose();
+//    }
 
-        BufferedImage image = new BufferedImage(w, h, transparency ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2 = image.createGraphics();
-        if (bg != null && !transparency) {
-            g2.setColor(bg);
-            g2.fillRect(0, 0, w, h);
-        }
+//    public void createPNG(int style, float size, String out, Color bg, Color fg) {
+//        createImage("png", style, size, out, bg, fg, bg == null);
+//    }
+//
+//    public void createGIF(int style, float size, String out, Color bg, Color fg) {
+//        createImage("gif", style, size, out, bg, fg, bg == null);
+//    }
+//
+//    public void createJPEG(int style, float size, String out, Color bg, Color fg) {
+//        //There is a bug when a BufferedImage has a component alpha so we disabel it
+//        createImage("jpeg", style, size, out, bg, fg, false);
+//    }
 
-        icon.setForeground(fg);
-        icon.paintIcon(null, g2, 0, 0);
-        try {
-            FileImageOutputStream imout = new FileImageOutputStream(new File(out));
-            ImageIO.write(image, format, imout);
-            imout.flush();
-            imout.close();
-        } catch (IOException ex) {
-            System.err.println("I/O error : Cannot generate " + out);
-        }
+//    /**
+//     * @param formula the formula
+//     * @param style the style
+//     * @param size the size
+//     * @param transparency, if true the background is transparent
+//     * @return the generated image
+//     */
+//    public static Image createBufferedImage(String formula, int style, float size, Color fg, Color bg) throws ParseException {
+//        TeXFormula f = new TeXFormula(formula);
+//        TeXIcon icon = f.createTeXIcon(style, size);
+//        icon.setInsets(new Insets(2, 2, 2, 2));
+//        int w = icon.getIconWidth(), h = icon.getIconHeight();
+//
+//        BufferedImage image = new BufferedImage(w, h, bg == null ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
+//        Graphics2D g2 = image.createGraphics();
+//        if (bg != null) {
+//            g2.setColor(bg);
+//            g2.fillRect(0, 0, w, h);
+//        }
+//
+//        icon.setForeground(fg == null ? Color.BLACK : fg);
+//        icon.paintIcon(null, g2, 0, 0);
+//        g2.dispose();
+//
+//        return image;
+//    }
 
-        g2.dispose();
-    }
-
-    public void createPNG(int style, float size, String out, Color bg, Color fg) {
-        createImage("png", style, size, out, bg, fg, bg == null);
-    }
-
-    public void createGIF(int style, float size, String out, Color bg, Color fg) {
-        createImage("gif", style, size, out, bg, fg, bg == null);
-    }
-
-    public void createJPEG(int style, float size, String out, Color bg, Color fg) {
-        //There is a bug when a BufferedImage has a component alpha so we disabel it
-        createImage("jpeg", style, size, out, bg, fg, false);
-    }
-
-    /**
-     * @param formula the formula
-     * @param style the style
-     * @param size the size
-     * @param transparency, if true the background is transparent
-     * @return the generated image
-     */
-    public static Image createBufferedImage(String formula, int style, float size, Color fg, Color bg) throws ParseException {
-        TeXFormula f = new TeXFormula(formula);
-        TeXIcon icon = f.createTeXIcon(style, size);
-        icon.setInsets(new Insets(2, 2, 2, 2));
-        int w = icon.getIconWidth(), h = icon.getIconHeight();
-
-        BufferedImage image = new BufferedImage(w, h, bg == null ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2 = image.createGraphics();
-        if (bg != null) {
-            g2.setColor(bg);
-            g2.fillRect(0, 0, w, h);
-        }
-
-        icon.setForeground(fg == null ? Color.BLACK : fg);
-        icon.paintIcon(null, g2, 0, 0);
-        g2.dispose();
-
-        return image;
-    }
-
-    /**
-     * @param formula the formula
-     * @param style the style
-     * @param size the size
-     * @param transparency, if true the background is transparent
-     * @return the generated image
-     */
-    public Image createBufferedImage(int style, float size, Color fg, Color bg) throws ParseException {
-        TeXIcon icon = createTeXIcon(style, size);
-        icon.setInsets(new Insets(2, 2, 2, 2));
-        int w = icon.getIconWidth(), h = icon.getIconHeight();
-
-        BufferedImage image = new BufferedImage(w, h, bg == null ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2 = image.createGraphics();
-        if (bg != null) {
-            g2.setColor(bg);
-            g2.fillRect(0, 0, w, h);
-        }
-
-        icon.setForeground(fg == null ? Color.BLACK : fg);
-        icon.paintIcon(null, g2, 0, 0);
-        g2.dispose();
-
-        return image;
-    }
+//    /**
+//     * @param formula the formula
+//     * @param style the style
+//     * @param size the size
+//     * @param transparency, if true the background is transparent
+//     * @return the generated image
+//     */
+//    public Image createBufferedImage(int style, float size, Color fg, Color bg) throws ParseException {
+//        TeXIcon icon = createTeXIcon(style, size);
+//        icon.setInsets(new Insets(2, 2, 2, 2));
+//        int w = icon.getIconWidth(), h = icon.getIconHeight();
+//
+//        BufferedImage image = new BufferedImage(w, h, bg == null ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB);
+//        Graphics2D g2 = image.createGraphics();
+//        if (bg != null) {
+//            g2.setColor(bg);
+//            g2.fillRect(0, 0, w, h);
+//        }
+//
+//        icon.setForeground(fg == null ? Color.BLACK : fg);
+//        icon.paintIcon(null, g2, 0, 0);
+//        g2.dispose();
+//
+//        return image;
+//    }
 
     public void setDEBUG(boolean b) {
         Box.DEBUG = b;

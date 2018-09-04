@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Color;
+import android.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;

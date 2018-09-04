@@ -45,7 +45,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Color;
+import android.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 

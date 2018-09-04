@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.awt.Font;
+import android.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
 

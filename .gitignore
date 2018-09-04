@@ -5,3 +5,7 @@ target
 /bin
 /dist
 *~
+**/target
+**/classes
+*.iml
+.idea/

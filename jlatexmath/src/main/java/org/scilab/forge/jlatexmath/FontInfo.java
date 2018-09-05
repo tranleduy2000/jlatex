@@ -50,6 +50,8 @@ import android.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * Contains all the font information for 1 font.
  */
@@ -308,7 +310,7 @@ public class FontInfo {
             if (base == null) {
                 font = DefaultTeXFontParser.createFont(path);
             } else {
-                font = DefaultTeXFontParser.createFont(base.getClass().getResourceAsStream(path), fontName);
+                font = DefaultTeXFontParser.createFont(path);
             }
         }
         return font;

@@ -1,0 +1,23 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 26
+
+    defaultConfig {
+        applicationId "ru.noties.jlatexmath.android.app"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation project(':jlatexmath')
+
+    deps.with {
+        implementation it['support-annotations']
+        implementation it['debug']
+    }
+}

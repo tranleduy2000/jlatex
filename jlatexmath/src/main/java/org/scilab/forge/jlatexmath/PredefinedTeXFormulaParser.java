@@ -54,6 +54,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * Parses and creates predefined TeXFormula objects form an XML-file.
  */
@@ -77,7 +79,7 @@ public class PredefinedTeXFormulaParser {
     }
 
     public PredefinedTeXFormulaParser(String PredefFile, String type) throws ResourceParseException {
-        this(PredefinedTeXFormulaParser.class.getResourceAsStream(PredefFile), type);
+        this(JLatexMathAndroid.getResourceAsStream(PredefFile), type);
     }
 
     public void parse(Map predefinedTeXFormulas) {

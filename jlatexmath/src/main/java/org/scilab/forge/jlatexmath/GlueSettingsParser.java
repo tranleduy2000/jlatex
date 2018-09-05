@@ -56,6 +56,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * Parses the glue settings (different types and rules) from an XML-file.
  */
@@ -78,7 +80,7 @@ public class GlueSettingsParser {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setIgnoringElementContentWhitespace(true);
             factory.setIgnoringComments(true);
-            root = factory.newDocumentBuilder().parse(GlueSettingsParser.class.getResourceAsStream(RESOURCE_NAME)).getDocumentElement();
+            root = factory.newDocumentBuilder().parse(JLatexMathAndroid.getResourceAsStream(RESOURCE_NAME)).getDocumentElement();
             parseGlueTypes();
         } catch (Exception e) { // JDOMException or IOException
             throw new XMLResourceParseException(RESOURCE_NAME, e);

@@ -16,3 +16,18 @@ allprojects {
 //    version = VERSION_NAME
 //    group = GROUP
 }
+
+wrapper {
+    gradleVersion '4.10'
+    distributionType 'all'
+}
+
+ext {
+
+    final def supportVersion = '27.1.1'
+
+    deps = [
+            'support-annotations': "com.android.support:support-annotations:$supportVersion",
+            'debug'              : 'ru.noties:debug:3.0.0@jar'
+    ]
+}

@@ -55,6 +55,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * Parses TeX symbol definitions from an XML-file.
  */
@@ -68,7 +70,7 @@ public class TeXSymbolParser {
     private Element root;
 
     public TeXSymbolParser() throws ResourceParseException {
-        this(TeXSymbolParser.class.getResourceAsStream(RESOURCE_NAME), RESOURCE_NAME);
+        this(JLatexMathAndroid.getResourceAsStream(RESOURCE_NAME), RESOURCE_NAME);
     }
 
     public TeXSymbolParser(InputStream file, String name) throws ResourceParseException {

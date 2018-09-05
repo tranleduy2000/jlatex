@@ -1,27 +1,57 @@
 package android.awt.geom;
 
-public class Rectangle2D {
+public abstract class Rectangle2D {
 
-    public float getY() {
-        return 0;
-    }
+    public abstract float getY();
 
-    public float getHeight() {
-        return 0;
-    }
+    public abstract float getHeight();
 
-    public float getWidth() {
-        return 0;
-    }
+    public abstract float getWidth();
 
-    public float getX() {
-        return 0;
-    }
+    public abstract float getX();
 
-    public static class Float {
+    public static class Float extends Rectangle2D {
+
+        public float x;
+        public float y;
+        public float w;
+        public float h;
 
         public Float(float x, float y, float w, float h) {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+        }
 
+        @Override
+        public float getY() {
+            return y;
+        }
+
+        @Override
+        public float getHeight() {
+            return h;
+        }
+
+        @Override
+        public float getWidth() {
+            return w;
+        }
+
+        @Override
+        public float getX() {
+            return x;
+        }
+
+        @Override
+        public String toString() {
+            return "Float{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    ", w=" + w +
+                    ", h=" + h +
+                    '}';
         }
     }
 }

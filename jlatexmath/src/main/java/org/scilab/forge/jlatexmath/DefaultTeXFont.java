@@ -55,6 +55,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * The default implementation of the TeXFont-interface. All font information is read
  * from an xml-file.
@@ -185,7 +187,7 @@ public class DefaultTeXFont implements TeXFont {
         }
         if (!b) {
             TeXParser.isLoading = true;
-            addTeXFontDescription(base, base.getClass().getResourceAsStream(language), language);
+            addTeXFontDescription(base, JLatexMathAndroid.getResourceAsStream(language), language);
             for (int i = 0; i < alphabet.length; i++) {
                 loadedAlphabets.add(alphabet[i]);
             }
@@ -199,7 +201,7 @@ public class DefaultTeXFont implements TeXFont {
         String map = "fonts/" + name + "/mappings_" + name+ ".xml";
 
         try {
-            DefaultTeXFont.addAlphabet(alphabet, TeXFormula.class.getResourceAsStream(lg), lg, TeXFormula.class.getResourceAsStream(sym), sym, TeXFormula.class.getResourceAsStream(map), map);
+            DefaultTeXFont.addAlphabet(alphabet, JLatexMathAndroid.getResourceAsStream(lg), lg, JLatexMathAndroid.getResourceAsStream(sym), sym, JLatexMathAndroid.getResourceAsStream(map), map);
         } catch (FontAlreadyLoadedException e) { }
     }
 

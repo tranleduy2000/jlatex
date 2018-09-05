@@ -11,7 +11,7 @@ public interface Graphics2D extends Graphics {
 
     Color getColor();
 
-    void setColor(Color background);
+    void setColor(Color color);
 
     void fill(Rectangle2D.Float aFloat);
 
@@ -31,7 +31,7 @@ public interface Graphics2D extends Graphics {
 
     void setFont(Font font);
 
-    void drawChars(char[] arr, int i, int i1, int i2, int i3);
+    void drawChars(char chars[], int offset, int length, int x, int y);
 
     void setTransform(AffineTransform at);
 
@@ -51,7 +51,7 @@ public interface Graphics2D extends Graphics {
 
     void fillRect(int i, int i1, int w, int h);
 
-    void dispose();
+//    void dispose();
 
     RenderingHints getRenderingHints();
 

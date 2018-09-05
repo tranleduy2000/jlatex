@@ -1,1 +1,2 @@
-include ':jlatexmath'
+rootProject.name = 'jlatexmath-parent'
+include ':jlatexmath', ':app'

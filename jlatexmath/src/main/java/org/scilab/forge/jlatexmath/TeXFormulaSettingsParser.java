@@ -53,6 +53,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import ru.noties.jlatexmath.JLatexMathAndroid;
+
 /**
  * Parses predefined TeXFormula's from an XML-file.
  */
@@ -64,7 +66,7 @@ public class TeXFormulaSettingsParser {
     private Element root;
 
     public TeXFormulaSettingsParser() throws ResourceParseException {
-        this(GlueSettingsParser.class.getResourceAsStream(RESOURCE_NAME), RESOURCE_NAME);
+        this(JLatexMathAndroid.getResourceAsStream(RESOURCE_NAME), RESOURCE_NAME);
     }
 
     public TeXFormulaSettingsParser(InputStream file, String name) throws ResourceParseException {

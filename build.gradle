@@ -13,8 +13,25 @@ allprojects {
         jcenter()
         google()
     }
-//    version = VERSION_NAME
-//    group = GROUP
+    version = VERSION_NAME
+    group = GROUP
+}
+
+//Solution by the first link
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
+if (hasProperty('local')) {
+    if (!hasProperty('LOCAL_MAVEN_URL')) {
+        throw new RuntimeException('Cannot publish to local maven as no such property exists: LOCAL_MAVEN_URL')
+    }
+    ext.RELEASE_REPOSITORY_URL = LOCAL_MAVEN_URL
+    ext.SNAPSHOT_REPOSITORY_URL = LOCAL_MAVEN_URL
 }
 
 wrapper {
@@ -25,9 +42,10 @@ wrapper {
 ext {
 
     config = [
-            'min-sdk': 16,
-            'target-sdk': 27,
-            'build-tools': '27.0.3'
+            'min-sdk'        : 16,
+            'target-sdk'     : 27,
+            'build-tools'    : '27.0.3',
+            'push-aar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-aar.gradle'
     ]
 
     final def supportVersion = '27.1.1'
@@ -36,4 +54,19 @@ ext {
             'support-annotations': "com.android.support:support-annotations:$supportVersion",
             'debug'              : 'ru.noties:debug:3.0.0@jar'
     ]
+
+    registerArtifact = this.&registerArtifact
+}
+
+def registerArtifact(project) {
+
+    if (hasProperty('release')) {
+        project.apply from: config['push-aar-gradle']
+    }
+
+    project.afterEvaluate {
+        // disable generation of BuildConfig files
+        project.generateDebugBuildConfig.enabled = false
+        project.generateReleaseBuildConfig.enabled = false
+    }
 }

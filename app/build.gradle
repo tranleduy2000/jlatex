@@ -2,14 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdkVersion 26
+    compileSdkVersion config['target-sdk']
+    buildToolsVersion config['build-tools']
 
     defaultConfig {
         applicationId "ru.noties.jlatexmath.android.app"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion config['min-sdk']
+        targetSdkVersion config['target-sdk']
         versionCode 1
-        versionName "1.0"
+        versionName version
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

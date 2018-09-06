@@ -11,11 +11,16 @@ android {
         versionCode 1
         versionName version
     }
+
+    sourceSets {
+        test.java.srcDirs = []
+    }
 }
 
 dependencies {
     deps.with {
         api it['support-annotations']
-        api it['debug']
     }
 }
+
+registerArtifact(this)

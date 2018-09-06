@@ -12,3 +12,5 @@ android {
         versionName version
     }
 }
+
+registerArtifact(this)

@@ -8,6 +8,6 @@ target
 **/target
 **/classes
 **/build
-.gradle/
+.gradle
 *.iml
 .idea/

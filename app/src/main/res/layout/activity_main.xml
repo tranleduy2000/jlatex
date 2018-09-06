@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ru.noties.jlatexmath.android.app.LatexMathView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/latex_math_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccc"/>
+    android:orientation="vertical"
+    android:background="#ccc">
+
+    <ru.noties.jlatexmath.JLatexMathView
+        android:id="@+id/j_latex_math_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dip"
+        android:background="@color/white"
+        app:jlmv_alignVertical="center"
+        app:jlmv_alignHorizontal="center"
+        app:jlmv_textSize="12sp" />
+
+</FrameLayout>

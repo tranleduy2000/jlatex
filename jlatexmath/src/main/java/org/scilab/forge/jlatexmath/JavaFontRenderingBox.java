@@ -45,13 +45,11 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
-import android.awt.Graphics2D;
-import android.awt.font.TextLayout;
-import android.awt.geom.Rectangle2D;
-import android.awt.image.BufferedImage;
-import java.util.Hashtable;
-import java.util.Map;
+import ru.noties.jlatexmath.awt.Font;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.font.TextLayout;
+import ru.noties.jlatexmath.awt.geom.Rectangle2D;
+import ru.noties.jlatexmath.awt.image.BufferedImage;
 
 /**
  * A box representing a scaled box.

@@ -50,7 +50,7 @@
 //import android.awt.Image;
 //import android.awt.Insets;
 //import android.awt.geom.AffineTransform;
-//import android.awt.image.BufferedImage;
+//import ru.noties.jlatexmath.awt.image.BufferedImage;
 //import java.lang.ref.Reference;
 //import java.lang.ref.ReferenceQueue;
 //import java.lang.ref.SoftReference;

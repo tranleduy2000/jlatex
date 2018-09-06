@@ -48,17 +48,12 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
-import android.awt.Graphics2D;
-import android.awt.GraphicsEnvironment;
-import android.awt.Image;
-import android.awt.Insets;
-import android.awt.Toolkit;
-import android.awt.image.BufferedImage;
-import java.io.File;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.GraphicsEnvironment;
+import ru.noties.jlatexmath.awt.Toolkit;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedList;

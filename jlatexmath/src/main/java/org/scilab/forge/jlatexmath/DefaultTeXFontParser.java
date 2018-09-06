@@ -48,14 +48,12 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
-import android.awt.GraphicsEnvironment;
+import ru.noties.jlatexmath.awt.Font;
+
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;

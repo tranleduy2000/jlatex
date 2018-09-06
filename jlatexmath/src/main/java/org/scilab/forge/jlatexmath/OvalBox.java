@@ -45,10 +45,10 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.BasicStroke;
-import android.awt.Graphics2D;
-import android.awt.Stroke;
-import android.awt.geom.RoundRectangle2D;
+import ru.noties.jlatexmath.awt.BasicStroke;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Stroke;
+import ru.noties.jlatexmath.awt.geom.RoundRectangle2D;
 
 /**
  * A box representing a rotated box.

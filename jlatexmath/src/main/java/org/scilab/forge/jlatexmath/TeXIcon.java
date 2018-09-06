@@ -49,15 +49,15 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
-import android.awt.Component;
-import android.awt.Graphics;
-import android.awt.Graphics2D;
-import android.awt.Insets;
-import android.awt.RenderingHints;
-import android.awt.geom.AffineTransform;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.Component;
+import ru.noties.jlatexmath.awt.Graphics;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Insets;
+import ru.noties.jlatexmath.awt.RenderingHints;
+import ru.noties.jlatexmath.awt.geom.AffineTransform;
 
-import androidx.swing.Icon;
+import ru.noties.jlatexmath.swing.Icon;
 
 /**
  * An {@link javax.swing.Icon} implementation that will paint the TeXFormula

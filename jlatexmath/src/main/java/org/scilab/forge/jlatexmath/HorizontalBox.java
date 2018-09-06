@@ -46,8 +46,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
-import android.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -111,7 +111,7 @@ public class HorizontalBox extends Box {
         for (Box box: children) {
             /*int i = children.indexOf(box);
               if (breakPositions != null && breakPositions.indexOf(i) != -1) {
-              box.markForDEBUG = android.awt.Color.BLUE;
+              box.markForDEBUG = ru.noties.jlatexmath.awt.Color.BLUE;
               }*/
 
             box.draw(g2, xPos, y + box.shift);

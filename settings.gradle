@@ -1,2 +1,6 @@
 rootProject.name = 'jlatexmath-parent'
-include ':jlatexmath', ':app'
+
+include ':app'
+include ':jlatexmath'
+include ':jlatexmath-font-cyrillic'
+include ':jlatexmath-font-greek'

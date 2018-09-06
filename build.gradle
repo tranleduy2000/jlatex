@@ -24,6 +24,12 @@ wrapper {
 
 ext {
 
+    config = [
+            'min-sdk': 16,
+            'target-sdk': 27,
+            'build-tools': '27.0.3'
+    ]
+
     final def supportVersion = '27.1.1'
 
     deps = [

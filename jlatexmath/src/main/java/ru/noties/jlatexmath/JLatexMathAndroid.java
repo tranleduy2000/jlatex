@@ -1,5 +1,6 @@
 package ru.noties.jlatexmath;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ public abstract class JLatexMathAndroid {
 
     private static final String BASE = "org/scilab/forge/jlatexmath/";
 
+    @SuppressLint("StaticFieldLeak")
     private static Context sContext = null;
 
     public static void init(Context context) {
@@ -19,7 +21,7 @@ public abstract class JLatexMathAndroid {
 
     public static InputStream getResourceAsStream(String path) {
         try {
-            return sContext.getAssets().open(BASE + path);
+            return context().getAssets().open(BASE + path);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -27,9 +29,17 @@ public abstract class JLatexMathAndroid {
 
     @NonNull
     public static Typeface loadTypeface(@NonNull String path) {
-        return Typeface.createFromAsset(sContext.getAssets(), BASE + path);
+        return Typeface.createFromAsset(context().getAssets(), BASE + path);
     }
 
     private JLatexMathAndroid() {
+    }
+
+    private static Context context() {
+        Context context = sContext;
+        if (context == null) {
+            throw new NullPointerException("Please call `#init(Context)` method to initialize jLatexMath");
+        }
+        return context;
     }
 }

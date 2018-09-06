@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Graphics2D;
 
 /**
  * A box representing glue.

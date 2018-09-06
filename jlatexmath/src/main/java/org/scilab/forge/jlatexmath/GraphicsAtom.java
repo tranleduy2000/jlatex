@@ -45,16 +45,12 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Graphics2D;
-//import android.awt.Image;
+//import ru.noties.jlatexmath.awt.Image;
 //import android.awt.Label;
 //import android.awt.MediaTracker;
-//import android.awt.Toolkit;
-//import android.awt.image.BufferedImage;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Map;
+//import ru.noties.jlatexmath.awt.Toolkit;
+//import ru.noties.jlatexmath.awt.image.BufferedImage;
+
 
 /**
  * An atom representing an atom containing a graphic.

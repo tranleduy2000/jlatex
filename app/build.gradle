@@ -14,7 +14,10 @@ android {
 }
 
 dependencies {
+
     implementation project(':jlatexmath')
+    implementation project(':jlatexmath-font-cyrillic')
+    implementation project(':jlatexmath-font-greek')
 
     deps.with {
         implementation it['support-annotations']

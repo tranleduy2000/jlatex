@@ -48,7 +48,7 @@
 //import android.awt.Graphics2D;
 //import android.awt.RenderingHints;
 //import android.awt.geom.AffineTransform;
-//import android.awt.image.BufferedImage;
+//import ru.noties.jlatexmath.awt.image.BufferedImage;
 //
 ///**
 // * A box representing a box containing a graphics.

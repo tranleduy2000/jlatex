@@ -45,7 +45,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
+import ru.noties.jlatexmath.awt.Color;
 
 /**
  * An atom representing a boxed base atom.

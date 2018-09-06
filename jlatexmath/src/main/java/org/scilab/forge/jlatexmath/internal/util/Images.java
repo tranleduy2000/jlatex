@@ -1,7 +1,7 @@
 package org.scilab.forge.jlatexmath.internal.util;
 
-import android.awt.Color;
-import android.awt.image.BufferedImage;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.image.BufferedImage;
 
 public final class Images {
 

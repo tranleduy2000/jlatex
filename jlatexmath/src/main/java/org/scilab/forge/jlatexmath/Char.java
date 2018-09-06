@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
+import ru.noties.jlatexmath.awt.Font;
 
 /**
  * Represents a character together with its font, font ID and metric information.

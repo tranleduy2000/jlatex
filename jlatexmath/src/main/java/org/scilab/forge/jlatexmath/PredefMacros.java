@@ -45,8 +45,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
-import android.awt.Font;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.Font;
 import java.util.Map;
 import java.util.StringTokenizer;
 

@@ -46,9 +46,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Color;
-import android.awt.Graphics2D;
-import android.awt.geom.Rectangle2D;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.geom.Rectangle2D;
 
 /**
  * A box representing a horizontal line.

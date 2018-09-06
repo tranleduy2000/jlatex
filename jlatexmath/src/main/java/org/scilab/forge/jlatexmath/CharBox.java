@@ -46,9 +46,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
-import android.awt.Graphics2D;
-import android.awt.geom.AffineTransform;
+import ru.noties.jlatexmath.awt.Font;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.geom.AffineTransform;
 
 /**
  * A box representing a single character.

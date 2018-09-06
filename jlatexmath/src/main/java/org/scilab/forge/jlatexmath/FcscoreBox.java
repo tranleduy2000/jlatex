@@ -45,11 +45,11 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.BasicStroke;
-import android.awt.Graphics2D;
-import android.awt.Stroke;
-import android.awt.geom.AffineTransform;
-import android.awt.geom.Line2D;
+import ru.noties.jlatexmath.awt.BasicStroke;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Stroke;
+import ru.noties.jlatexmath.awt.geom.AffineTransform;
+import ru.noties.jlatexmath.awt.geom.Line2D;
 
 /**
  * A box representing glue.

@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
+import ru.noties.jlatexmath.awt.Font;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;

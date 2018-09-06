@@ -46,11 +46,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.Font;
+import ru.noties.jlatexmath.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
-
-import ru.noties.jlatexmath.JLatexMathAndroid;
 
 /**
  * Contains all the font information for 1 font.

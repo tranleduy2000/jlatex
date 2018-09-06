@@ -48,11 +48,11 @@
 
 package org.scilab.forge.jlatexmath;
 
-import android.awt.BasicStroke;
-import android.awt.Color;
-import android.awt.Graphics2D;
-import android.awt.Stroke;
-import android.awt.geom.Rectangle2D;
+import ru.noties.jlatexmath.awt.BasicStroke;
+import ru.noties.jlatexmath.awt.Color;
+import ru.noties.jlatexmath.awt.Graphics2D;
+import ru.noties.jlatexmath.awt.Stroke;
+import ru.noties.jlatexmath.awt.geom.Rectangle2D;
 import java.util.LinkedList;
 
 /**

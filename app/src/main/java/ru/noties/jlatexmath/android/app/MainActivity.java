@@ -22,8 +22,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        JLatexMathAndroid.init(this);
-
         setContentView(R.layout.activity_main);
 
         final JLatexMathView jLatexMathView = findViewById(R.id.j_latex_math_view);

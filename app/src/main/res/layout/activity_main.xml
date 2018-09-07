@@ -14,6 +14,6 @@
         android:background="@color/white"
         app:jlmv_alignVertical="center"
         app:jlmv_alignHorizontal="center"
-        app:jlmv_textSize="12sp" />
+        app:jlmv_textSize="8sp" />
 
 </FrameLayout>

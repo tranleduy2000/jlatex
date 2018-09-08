@@ -6,14 +6,14 @@
     android:orientation="vertical"
     android:background="#ccc">
 
-    <ru.noties.jlatexmath.JLatexMathView
-        android:id="@+id/j_latex_math_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dip"
-        android:background="@color/white"
-        app:jlmv_alignVertical="center"
-        app:jlmv_alignHorizontal="center"
-        app:jlmv_textSize="8sp" />
+<ru.noties.jlatexmath.JLatexMathView
+    android:id="@+id/j_latex_math_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dip"
+    android:background="@color/white"
+    app:jlmv_alignVertical="center"
+    app:jlmv_alignHorizontal="center"
+    app:jlmv_textSize="16sp" />
 
 </FrameLayout>

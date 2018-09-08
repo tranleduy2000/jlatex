@@ -13,7 +13,12 @@ android {
     }
 
     sourceSets {
+        // disable original tests as they rely on image creation
         test.java.srcDirs = []
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

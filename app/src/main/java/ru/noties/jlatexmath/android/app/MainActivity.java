@@ -116,5 +116,9 @@ public class MainActivity extends Activity {
 //        latexMathView.setLatexMath(latex);
 
         jLatexMathView.setLatex(latex);
+
+        if (true) {
+            final String s = "$$here is $ some$$\n\n$$\\beginarray{}\n\\whatever {}1,2_+$$";
+        }
     }
 }

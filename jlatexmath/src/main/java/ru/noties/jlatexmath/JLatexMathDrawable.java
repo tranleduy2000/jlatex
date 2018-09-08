@@ -151,7 +151,7 @@ public class JLatexMathDrawable extends Drawable {
 
         private final String latex;
 
-        private int textSize;
+        private float textSize;
         private int color = 0xFF000000;
         private int align;
         private Drawable background;
@@ -163,7 +163,7 @@ public class JLatexMathDrawable extends Drawable {
         }
 
         @NonNull
-        public Builder textSize(@Px int textSize) {
+        public Builder textSize(@Px float textSize) {
             this.textSize = textSize;
             return this;
         }

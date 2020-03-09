@@ -119,7 +119,7 @@ public class JLatexMathView extends View {
     }
 
     @NonNull
-    public JLatexMathView background(@NonNull Drawable background) {
+    public JLatexMathView background(@Nullable Drawable background) {
         this.background = background;
         return this;
     }

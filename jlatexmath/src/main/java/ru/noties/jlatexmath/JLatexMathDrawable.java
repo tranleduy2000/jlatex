@@ -1,5 +1,6 @@
 package ru.noties.jlatexmath;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
@@ -29,6 +30,7 @@ public class JLatexMathDrawable extends Drawable {
     public static final int ALIGN_CENTER = 1;
     public static final int ALIGN_RIGHT = 2;
 
+    @SuppressWarnings("WeakerAccess")
     @IntDef({ALIGN_LEFT, ALIGN_CENTER, ALIGN_RIGHT})
     @Retention(RetentionPolicy.CLASS)
     public @interface Align {
@@ -49,6 +51,7 @@ public class JLatexMathDrawable extends Drawable {
     private final int iconWidth;
     private final int iconHeight;
 
+    @SuppressWarnings("WeakerAccess")
     JLatexMathDrawable(@NonNull Builder builder) {
 
         this.icon = new TeXFormula(builder.latex)
@@ -87,7 +90,7 @@ public class JLatexMathDrawable extends Drawable {
             if (fitCanvas) {
 
                 // check if we need scaling by checking original bounds against this instance bounds
-                final int w = canvas.getWidth();
+                @SuppressLint("CanvasSize") final int w = canvas.getWidth();
 
                 // scale down
                 if (iconWidth > w) {
@@ -148,6 +151,15 @@ public class JLatexMathDrawable extends Drawable {
         return iconHeight;
     }
 
+    /**
+     * @since 0.1.1
+     */
+    @NonNull
+    public TeXIcon icon() {
+        return icon;
+    }
+
+    @SuppressWarnings({"unused", "WeakerAccess"})
     public static class Builder {
 
         private final String latex;
@@ -182,7 +194,7 @@ public class JLatexMathDrawable extends Drawable {
         }
 
         @NonNull
-        public Builder background(@NonNull Drawable background) {
+        public Builder background(@Nullable Drawable background) {
             this.background = background;
             return this;
         }

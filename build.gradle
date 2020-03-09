@@ -43,16 +43,14 @@ ext {
 
     config = [
             'min-sdk'        : 16,
-            'target-sdk'     : 27,
-            'build-tools'    : '27.0.3',
+            'target-sdk'     : 28,
+            'build-tools'    : '28.0.3',
             'push-aar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-aar.gradle'
     ]
 
-    final def supportVersion = '27.1.1'
-
     deps = [
-            'support-annotations': "com.android.support:support-annotations:$supportVersion",
-            'debug'              : 'ru.noties:debug:3.0.0@jar'
+            'x-annotations': 'androidx.annotation:annotation:1.1.0',
+            'debug'        : 'io.noties:debug:5.1.0'
     ]
 
     registerArtifact = this.&registerArtifact

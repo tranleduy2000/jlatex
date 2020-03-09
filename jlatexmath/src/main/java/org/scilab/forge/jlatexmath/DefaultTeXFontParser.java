@@ -48,10 +48,15 @@
 
 package org.scilab.forge.jlatexmath;
 
-import ru.noties.jlatexmath.awt.Font;
-
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -61,13 +66,8 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.Attr;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import ru.noties.jlatexmath.JLatexMathAndroid;
+import ru.noties.jlatexmath.awt.Font;
 
 
 /**

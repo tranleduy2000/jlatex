@@ -25,7 +25,7 @@ dependencies {
     implementation project(':jlatexmath-font-greek')
 
     deps.with {
-        implementation it['support-annotations']
+        implementation it['x-annotations']
         implementation it['debug']
     }
 }

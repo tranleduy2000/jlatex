@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
-import ru.noties.debug.AndroidLogDebugOutput;
-import ru.noties.debug.Debug;
+import io.noties.debug.AndroidLogDebugOutput;
+import io.noties.debug.Debug;
 import ru.noties.jlatexmath.JLatexMathAndroid;
 import ru.noties.jlatexmath.JLatexMathDrawable;
 import ru.noties.jlatexmath.JLatexMathView;

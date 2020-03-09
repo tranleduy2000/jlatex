@@ -4,7 +4,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.5.3'
     }
 }
 
@@ -21,7 +21,8 @@ allprojects {
 if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
         tasks.withType(Javadoc) {
-            options.addStringOption('Xdoclint:none', '-quiet')
+            enabled = false
+//            options.addStringOption('Xdoclint:none', '-quiet')
         }
     }
 }
@@ -35,7 +36,7 @@ if (hasProperty('local')) {
 }
 
 wrapper {
-    gradleVersion '4.10'
+    gradleVersion '5.5.1'
     distributionType 'all'
 }
 

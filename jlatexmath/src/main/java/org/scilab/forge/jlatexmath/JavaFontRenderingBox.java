@@ -49,14 +49,13 @@ import ru.noties.jlatexmath.awt.Font;
 import ru.noties.jlatexmath.awt.Graphics2D;
 import ru.noties.jlatexmath.awt.font.TextLayout;
 import ru.noties.jlatexmath.awt.geom.Rectangle2D;
-import ru.noties.jlatexmath.awt.image.BufferedImage;
 
 /**
  * A box representing a scaled box.
  */
 public class JavaFontRenderingBox extends Box {
 
-    private static final Graphics2D TEMPGRAPHIC = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).createGraphics();
+//    private static final Graphics2D TEMPGRAPHIC = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).createGraphics();
 
     private static Font font = new Font("Serif", Font.PLAIN, 10);
 
@@ -87,7 +86,8 @@ public class JavaFontRenderingBox extends Box {
 //            f = f.deriveFont(map);
 //        }
 
-        this.text = new TextLayout(str, f.deriveFont(type), TEMPGRAPHIC.getFontRenderContext());
+//        this.text = new TextLayout(str, f.deriveFont(type), TEMPGRAPHIC.getFontRenderContext());
+        this.text = new TextLayout(str, f.deriveFont(type), null);
         Rectangle2D rect = text.getBounds();
         this.height = (float) (-rect.getY() * size / 10);
         this.depth = (float) (rect.getHeight() * size / 10) - this.height;

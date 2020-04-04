@@ -2,9 +2,11 @@ package ru.noties.jlatexmath.awt;
 
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
+
 import androidx.annotation.NonNull;
 
 import java.io.InputStream;
+import java.util.Locale;
 
 public class Font {
 
@@ -26,21 +28,15 @@ public class Font {
         return new Font(typeface, 0, size);
     }
 
-//    private final String name;
+    //    private final String name;
     private final Typeface typeface;
     private int style;
     private float size;
 
     public Font(String name, int style, int size) {
-        throw new RuntimeException("TODO");
+//        throw new RuntimeException(String.format("name: %s, style: %d, size: %d", name, style, size));
+        this(createTypeface(name, style), style, size);
     }
-
-//    @NonNull
-//    private static Typeface fromName(@NonNull String name) {
-//        switch (name) {
-//
-//        }
-//    }
 
     private Font(@NonNull Typeface typeface, int style, float size) {
         this.typeface = applyStyle(typeface, style);
@@ -56,16 +52,15 @@ public class Font {
         final int current = (typeface.isBold() ? BOLD : 0) | (typeface.isItalic() ? ITALIC : 0);
         if (current != style) {
             // both will be 3 (BOLD_ITALIC)
-            @SuppressLint("WrongConstant")
-            final int out = ((style & BOLD) != 0 ? BOLD : 0) | ((style & ITALIC) != 0 ? ITALIC : 0);
+            @SuppressLint("WrongConstant") final int out = ((style & BOLD) != 0 ? BOLD : 0) | ((style & ITALIC) != 0 ? ITALIC : 0);
             typeface = Typeface.create(typeface, out);
         }
 
         return typeface;
     }
 
-    public Font deriveFont(float size) {
-        return new Font(typeface, style, (int) size);
+    public Font deriveFont(int type) {
+        return new Font(typeface, type, size);
     }
 
     public Typeface typeface() {
@@ -86,5 +81,23 @@ public class Font {
 
     public boolean isItalic() {
         return (style & ITALIC) != 0;
+    }
+
+    @NonNull
+    private static Typeface createTypeface(@NonNull String name, int style) {
+        Typeface typeface = Typeface.create(name.toLowerCase(Locale.US), toAndroidStyle(style));
+        if (typeface == null) {
+            typeface = Typeface.DEFAULT;
+        }
+        return typeface;
+    }
+
+    // @since 0.1.2
+    private static int toAndroidStyle(int style) {
+        if (style == PLAIN) {
+            return Typeface.NORMAL;
+        }
+        return ((style & BOLD) != 0 ? Typeface.BOLD : 0)
+                | ((style & ITALIC) != 0 ? Typeface.ITALIC : 0);
     }
 }

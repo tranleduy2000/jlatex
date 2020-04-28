@@ -1,9 +1,9 @@
 package ru.noties.jlatexmath;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -44,7 +44,6 @@ public class JLatexMathDrawable extends Drawable {
     private final TeXIcon icon;
     private final int align;
     private final Drawable background;
-    private final boolean fitCanvas;
 
     private final AndroidGraphics2D graphics2D;
 
@@ -67,7 +66,6 @@ public class JLatexMathDrawable extends Drawable {
 
         this.align = builder.align;
         this.background = builder.background;
-        this.fitCanvas = builder.fitCanvas;
 
         this.graphics2D = new AndroidGraphics2D();
 
@@ -75,46 +73,64 @@ public class JLatexMathDrawable extends Drawable {
         this.iconHeight = icon.getIconHeight();
 
         setBounds(0, 0, iconWidth, iconHeight);
+    }
+
+    @Override
+    protected void onBoundsChange(Rect bounds) {
+        super.onBoundsChange(bounds);
 
         if (background != null) {
-            background.setBounds(0, 0, iconWidth, iconHeight);
+            background.setBounds(bounds);
         }
     }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
 
+        final Rect bounds = getBounds();
+
         final int save = canvas.save();
         try {
 
-            if (fitCanvas) {
-
-                // check if we need scaling by checking original bounds against this instance bounds
-                @SuppressLint("CanvasSize") final int w = canvas.getWidth();
-
-                // scale down
-                if (iconWidth > w) {
-                    final float ratio = (float) w / iconWidth;
-                    setBounds(0, 0, w, (int) (iconHeight * ratio + .5F));
-                    canvas.scale(ratio, ratio);
-                } else {
-                    // align
-                    if (align != ALIGN_LEFT) {
-                        final float left;
-                        if (ALIGN_CENTER == align) {
-                            left = (w - iconWidth) / 2;
-                        } else if (ALIGN_RIGHT == align) {
-                            left = w - iconWidth;
-                        } else {
-                            throw new IllegalStateException("Unexpected `align` value: " + align);
-                        }
-                        canvas.translate(left, 0);
-                    }
-                }
-            }
-
+            // draw background before _possibly_ modifying latex (we should not modify background,
+            //  it should always be the bounds we received)
             if (background != null) {
                 background.draw(canvas);
+            }
+
+            final int w = bounds.width();
+            final int h = bounds.height();
+
+            final float scale;
+            if (iconWidth > w
+                    || iconHeight > h) {
+                scale = Math.min(
+                        (float) w / iconWidth,
+                        (float) h / iconHeight
+                );
+            } else {
+                scale = 1F;
+            }
+
+            final int targetW = (int) (iconWidth * scale + 0.5F);
+            final int targetH = (int) (iconHeight * scale + 0.5F);
+
+            final int top = (h - targetH) / 2;
+            final int left;
+            if (align == ALIGN_CENTER) {
+                left = (w - targetW) / 2;
+            } else if (align == ALIGN_RIGHT) {
+                left = w - targetW;
+            } else {
+                left = 0;
+            }
+
+            if (top != 0 || left != 0) {
+                canvas.translate(left, top);
+            }
+
+            if (Float.compare(scale, 1F) != 0) {
+                canvas.scale(scale, scale);
             }
 
             graphics2D.setCanvas(canvas);
@@ -169,7 +185,6 @@ public class JLatexMathDrawable extends Drawable {
         private int align;
         private Drawable background;
         private Insets insets;
-        private boolean fitCanvas = true;
 
         public Builder(@NonNull String latex) {
             this.latex = latex;
@@ -217,9 +232,12 @@ public class JLatexMathDrawable extends Drawable {
             return this;
         }
 
+        /**
+         * @since 0.2.0 no longer in use
+         */
         @NonNull
+        @Deprecated
         public Builder fitCanvas(boolean fitCanvas) {
-            this.fitCanvas = fitCanvas;
             return this;
         }
 

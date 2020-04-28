@@ -1,9 +1,11 @@
 package ru.noties.jlatexmath.android.app;
 
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -12,6 +14,7 @@ import java.util.Map;
 
 import io.noties.debug.AndroidLogDebugOutput;
 import io.noties.debug.Debug;
+import ru.noties.jlatexmath.JLatexMathDrawable;
 import ru.noties.jlatexmath.JLatexMathView;
 
 public class MainActivity extends Activity {
@@ -67,6 +70,17 @@ public class MainActivity extends Activity {
 
     private void display(@NonNull String latex) {
         jLatexMathView.setLatex(latex);
+
+        if (true) {
+            final JLatexMathDrawable drawable = JLatexMathDrawable.builder(latex)
+                    .textSize(100)
+                    .fitCanvas(false)
+                    .align(JLatexMathDrawable.ALIGN_CENTER)
+                    .background(new ColorDrawable(0x4000ff00))
+                    .build();
+            final View root = findViewById(R.id.root);
+            root.setBackground(drawable);
+        }
     }
 
     private static final String LATEX_1;

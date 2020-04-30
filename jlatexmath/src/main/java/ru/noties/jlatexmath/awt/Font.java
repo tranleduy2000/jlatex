@@ -16,8 +16,6 @@ public class Font {
 
     public static final int ITALIC = 2;
 
-    public static final int TRUETYPE_FONT = 0;
-
     @Deprecated
     public static Font createFont(int truetypeFont, InputStream fontIn) {
         return null;
@@ -28,13 +26,11 @@ public class Font {
         return new Font(typeface, 0, size);
     }
 
-    //    private final String name;
     private final Typeface typeface;
     private int style;
     private float size;
 
     public Font(String name, int style, int size) {
-//        throw new RuntimeException(String.format("name: %s, style: %d, size: %d", name, style, size));
         this(createTypeface(name, style), style, size);
     }
 
@@ -46,9 +42,6 @@ public class Font {
 
     @NonNull
     private static Typeface applyStyle(@NonNull Typeface typeface, int style) {
-
-        // todo: I have a feeling that BOLD_ITALIC flag might be needed here to be used
-
         final int current = (typeface.isBold() ? BOLD : 0) | (typeface.isItalic() ? ITALIC : 0);
         if (current != style) {
             // both will be 3 (BOLD_ITALIC)

@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 
 android {
 
-    compileSdkVersion config['target-sdk']
-    buildToolsVersion config['build-tools']
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion config['min-sdk']
-        targetSdkVersion config['target-sdk']
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName version
     }
@@ -17,15 +17,4 @@ android {
         test.java.srcDirs = []
     }
 
-    lintOptions {
-        abortOnError false
-    }
 }
-
-dependencies {
-    deps.with {
-        api it['x-annotations']
-    }
-}
-
-registerArtifact(this)

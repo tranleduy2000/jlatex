@@ -1,6 +1,7 @@
 package ru.noties.jlatexmath.awt.geom;
 
 import android.graphics.Canvas;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 

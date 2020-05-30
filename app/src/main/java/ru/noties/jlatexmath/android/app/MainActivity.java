@@ -3,6 +3,7 @@ package ru.noties.jlatexmath.android.app;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,16 +13,10 @@ import androidx.annotation.NonNull;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.noties.debug.AndroidLogDebugOutput;
-import io.noties.debug.Debug;
 import ru.noties.jlatexmath.JLatexMathDrawable;
 import ru.noties.jlatexmath.JLatexMathView;
 
 public class MainActivity extends Activity {
-
-    static {
-        Debug.init(new AndroidLogDebugOutput(true));
-    }
 
     private final Map<String, String> map = new LinkedHashMap<String, String>() {{
         put("latex #1", LATEX_1);

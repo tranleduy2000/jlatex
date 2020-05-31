@@ -118,7 +118,9 @@ final class PredefinedTeXFormulas {
         TeXFormula.predefinedTeXFormulasAsString.put("coth", "\\mathop{\\mathrm{coth}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("sec", "\\mathop{\\mathrm{sec}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arcsec", "\\mathop{\\mathrm{arcsec}}\\nolimits");
+        TeXFormula.predefinedTeXFormulasAsString.put("arcsech", "\\mathop{\\mathrm{arcsech}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arccsc", "\\mathop{\\mathrm{arccsc}}\\nolimits");
+        TeXFormula.predefinedTeXFormulasAsString.put("arccsch", "\\mathop{\\mathrm{arccsch}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("sech", "\\mathop{\\mathrm{sech}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("csc", "\\mathop{\\mathrm{csc}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("csch", "\\mathop{\\mathrm{csch}}\\nolimits");

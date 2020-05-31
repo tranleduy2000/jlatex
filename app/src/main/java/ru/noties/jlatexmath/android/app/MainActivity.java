@@ -116,6 +116,7 @@ public class MainActivity extends Activity {
         put("latex #7", LATEX_7);
         put("latex #8", "{\\textnormal{abcdefff}}_{16}");
         put("latex #9", "InverseErfc\\text{/@}\\{0,1,2\\}");
+        put("latex #10", "\\infty");
     }};
     private JLatexMathView jLatexMathView;
 
@@ -128,7 +129,7 @@ public class MainActivity extends Activity {
         jLatexMathView = findViewById(R.id.j_latex_math_view);
 
         final String latex = "" +
-                "\\mathbf{小明 abc} 小明" +
+                "\\imag" +
                 "";
         display(latex);
     }

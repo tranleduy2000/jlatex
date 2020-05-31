@@ -31,6 +31,7 @@
   <SymbolMapping name="faculty" ch="33" fontId="jlm_cmr10"/>
   <SymbolMapping name="question" ch="63" fontId="jlm_cmr10"/>
   <SymbolMapping name="questiondown" ch="62" fontId="jlm_cmr10"/>
+  <SymbolMapping name="at" ch="64" fontId="jlm_cmr10"/>
   <SymbolMapping name="jlatexmathsharp" ch="35" fontId="jlm_cmr10"/>
   <SymbolMapping name="textdollar" ch="36" fontId="jlm_cmr10"/>
   <SymbolMapping name="textpercent" ch="37" fontId="jlm_cmr10"/>

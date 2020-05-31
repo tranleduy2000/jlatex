@@ -76,6 +76,7 @@
 	  <Map char="&apos;" symbol="textapos"/>
 	  <Map char="`" symbol="jlatexmathlapos"/>
 	  <Map char="#" symbol="jlatexmathsharp"/>
+	  <Map char="@" symbol="at"/>
 	  <Map char="&#163;" symbol="mathsterling"/>
 	  <Map char="&#165;" symbol="yen"/>
 	  <Map char="&#167;" symbol="S"/>

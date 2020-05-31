@@ -105,6 +105,7 @@ final class PredefinedTeXFormulas {
         TeXFormula.predefinedTeXFormulasAsString.put("sinh", "\\mathop{\\mathrm{sinh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("cos", "\\mathop{\\mathrm{cos}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arccos", "\\mathop{\\mathrm{arccos}}\\nolimits");
+        TeXFormula.predefinedTeXFormulasAsString.put("arccosh", "\\mathop{\\mathrm{arccosh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("cot", "\\mathop{\\mathrm{cot}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arccot", "\\mathop{\\mathrm{arccot}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("cosh", "\\mathop{\\mathrm{cosh}}\\nolimits");

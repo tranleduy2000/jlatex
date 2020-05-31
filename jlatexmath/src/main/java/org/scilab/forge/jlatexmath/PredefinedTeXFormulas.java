@@ -112,6 +112,7 @@ final class PredefinedTeXFormulas {
         TeXFormula.predefinedTeXFormulasAsString.put("cosh", "\\mathop{\\mathrm{cosh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("tan", "\\mathop{\\mathrm{tan}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arctan", "\\mathop{\\mathrm{arctan}}\\nolimits");
+        TeXFormula.predefinedTeXFormulasAsString.put("arctanh", "\\mathop{\\mathrm{arctanh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("tanh", "\\mathop{\\mathrm{tanh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("coth", "\\mathop{\\mathrm{coth}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("sec", "\\mathop{\\mathrm{sec}}\\nolimits");

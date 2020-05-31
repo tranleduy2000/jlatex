@@ -539,7 +539,6 @@
 	  <Map char="&#10764;" formula="\iiiint"/>
 	  <Map char="&#8765;" formula="\backsim"/>
 	  <Map char="&#8734;" formula="\infty"/>
-	  <Map char="i" formula="\imag"/>
 	  <Map char="&#8834;" formula="\subset"/>
 	  <Map char="&#8914;" formula="\Cap"/>
 	  <Map char="&#8900;" formula="\diamond"/>

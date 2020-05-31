@@ -117,6 +117,7 @@ public class MainActivity extends Activity {
         put("latex #8", "{\\textnormal{abcdefff}}_{16}");
         put("latex #9", "InverseErfc\\text{/@}\\{0,1,2\\}");
         put("latex #10", "\\infty");
+        put("latex #11", "\\imag");
     }};
     private JLatexMathView jLatexMathView;
 

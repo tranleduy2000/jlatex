@@ -125,6 +125,7 @@ final class PredefinedTeXFormulas {
         TeXFormula.predefinedTeXFormulasAsString.put("min", "\\mathop{\\mathrm{min}}");
         TeXFormula.predefinedTeXFormulasAsString.put("sup", "\\mathop{\\mathrm{sup}}");
         TeXFormula.predefinedTeXFormulasAsString.put("inf", "\\mathop{\\mathrm{inf}}");
+        TeXFormula.predefinedTeXFormulasAsString.put("imag", "\\mathit{i}");
         TeXFormula.predefinedTeXFormulasAsString.put("arg", "\\mathop{\\mathrm{arg}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("ker", "\\mathop{\\mathrm{ker}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("dim", "\\mathop{\\mathrm{dim}}\\nolimits");

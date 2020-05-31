@@ -175,7 +175,6 @@
   <SymbolMapping name="Im" ch="61" fontId="jlm_cmsy10"/>
   <SymbolMapping name="partial" ch="64" fontId="jlm_cmmi10_unchanged"/>
   <SymbolMapping name="infty" ch="49" fontId="jlm_cmsy10"/>
-  <SymbolMapping name="imag" ch="105" fontId="jlm_cmmi10_unchanged"/>
   <SymbolMapping name="prime" ch="48" fontId="jlm_cmsy10"/>
   <SymbolMapping name="emptyset" ch="59" fontId="jlm_cmsy10"/>
   <SymbolMapping name="nabla" ch="114" fontId="jlm_cmsy10"/>

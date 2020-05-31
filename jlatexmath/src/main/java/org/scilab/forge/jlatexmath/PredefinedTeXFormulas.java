@@ -102,6 +102,7 @@ final class PredefinedTeXFormulas {
         TeXFormula.predefinedTeXFormulasAsString.put("varlimsup", "\\mathop{\\overline{\\mathrm{lim}}}");
         TeXFormula.predefinedTeXFormulasAsString.put("sin", "\\mathop{\\mathrm{sin}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arcsin", "\\mathop{\\mathrm{arcsin}}\\nolimits");
+        TeXFormula.predefinedTeXFormulasAsString.put("arcsinh", "\\mathop{\\mathrm{arcsinh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("sinh", "\\mathop{\\mathrm{sinh}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("cos", "\\mathop{\\mathrm{cos}}\\nolimits");
         TeXFormula.predefinedTeXFormulasAsString.put("arccos", "\\mathop{\\mathrm{arccos}}\\nolimits");

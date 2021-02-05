@@ -130,7 +130,14 @@ public class MainActivity extends Activity {
         jLatexMathView = findViewById(R.id.j_latex_math_view);
 
         final String latex = "" +
-                "\\imag" +
+                "\\left(" +
+                "    \\begin{array}{ccc}" +
+                "    1 & 0 & 0 \\\\" +
+                "    0 & 1 & 0 \\\\" +
+                "    0 & 0 & 1 \\" +
+                "    \\\\" +
+                "    \\end{array}" +
+                "    \\right) " +
                 "";
         display(latex);
     }

@@ -2,23 +2,21 @@ apply plugin: 'com.android.library'
 
 android {
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName version
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
     }
 
     sourceSets {
         // disable original tests as they rely on image creation
         test.java.srcDirs = []
     }
+    namespace 'ru.noties.jlatexmath.android'
 
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.annotation:annotation:1.7.0'
 }

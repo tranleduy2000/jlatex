@@ -48,6 +48,9 @@
 
 package org.scilab.forge.jlatexmath;
 
+import org.scilab.forge.jlatexmath.cyrillic.CyrillicRegistration;
+import org.scilab.forge.jlatexmath.greek.GreekRegistration;
+
 import ru.noties.jlatexmath.awt.Color;
 import ru.noties.jlatexmath.awt.GraphicsEnvironment;
 import ru.noties.jlatexmath.awt.Toolkit;
@@ -133,8 +136,8 @@ public class TeXFormula {
         parser.parseSymbolToFormulaMappings(symbolFormulaMappings, symbolTextMappings);
 
         try {
-            DefaultTeXFont.registerAlphabet((AlphabetRegistration) Class.forName("org.scilab.forge.jlatexmath.cyrillic.CyrillicRegistration").newInstance());
-            DefaultTeXFont.registerAlphabet((AlphabetRegistration) Class.forName("org.scilab.forge.jlatexmath.greek.GreekRegistration").newInstance());
+            DefaultTeXFont.registerAlphabet(new CyrillicRegistration());
+            DefaultTeXFont.registerAlphabet(new GreekRegistration());
         } catch (Exception e) { }
 
         //setDefaultDPI();

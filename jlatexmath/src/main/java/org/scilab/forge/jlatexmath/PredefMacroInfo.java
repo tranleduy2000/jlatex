@@ -48,7 +48,7 @@ package org.scilab.forge.jlatexmath;
 /**
  * Class to load the predefined commands. Mainly wrote to avoid the use of the Java reflection.
  */
-class PredefMacroInfo extends MacroInfo {
+class PredefMacroInfo extends MacroInfo<Object> {
 
     private int id;
 

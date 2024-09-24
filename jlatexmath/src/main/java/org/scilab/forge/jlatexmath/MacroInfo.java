@@ -45,56 +45,59 @@
 
 package org.scilab.forge.jlatexmath;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 
-public class MacroInfo {
+public class MacroInfo<T> {
 
-    public static HashMap<String, MacroInfo> Commands = new HashMap<String, MacroInfo>(300);
-    public static HashMap<String, Object> Packages = new HashMap<String, Object>();
+    @FunctionalInterface
+    public interface Method<T> {
 
-    public Object pack;
-    public Method macro;
+        String apply(T pack, TeXParser teXParser, String[] args);
+
+    }
+
+    public static HashMap<String, MacroInfo<?>> Commands = new HashMap<>(300);
+    public static HashMap<String, Object> Packages = new HashMap<>();
+
+    public T pack;
+    public Method<T> macro;
     public int nbArgs;
     public boolean hasOptions = false;
     public int posOpts;
 
-    public MacroInfo(Object pack, Method macro, int nbArgs) {
+    public MacroInfo(T pack, Method<T> macro, int nbArgs) {
         this.pack = pack;
         this.macro = macro;
         this.nbArgs = nbArgs;
     }
 
-    public MacroInfo(Object pack, Method macro, int nbArgs, int posOpts) {
+    public MacroInfo(T pack, Method<T> macro, int nbArgs, int posOpts) {
         this(pack, macro, nbArgs);
         this.hasOptions = true;
         this.posOpts = posOpts;
     }
 
     public MacroInfo(int nbArgs, int posOpts) {
-        this(null, (Method) null, nbArgs);
+        this((T) null, null, nbArgs);
         this.hasOptions = true;
         this.posOpts = posOpts;
     }
 
     public MacroInfo(int nbArgs) {
-        this(null, (Method) null, nbArgs);
+        this((T) null, null, nbArgs);
     }
 
-    public MacroInfo(String className, String methodName, float nbArgs) {
+    public MacroInfo(Class<T> clazz, Method<T> method, float nbArgs) {
         int nba = (int) nbArgs;
-        Class<?>[] args = new Class<?>[] {TeXParser.class, String[].class};
-
+        String className = clazz.getName();
         try {
             Object pack = Packages.get(className);
             if (pack == null) {
-                Class<?> cl = Class.forName(className);
-                pack = cl.getConstructor(new Class[0]).newInstance(new Object[0]);
+                pack = clazz.getConstructor(new Class[0]).newInstance();
                 Packages.put(className, pack);
             }
-            this.pack = pack;
-            this.macro = pack.getClass().getDeclaredMethod(methodName, args);
+            this.pack = (T) pack;
+            this.macro = method;
             this.nbArgs = nba;
         } catch (Exception e) {
             System.err.println("Cannot load package " + className + ":");
@@ -102,19 +105,17 @@ public class MacroInfo {
         }
     }
 
-    public MacroInfo(String className, String methodName, float nbArgs, float posOpts) {
+    public MacroInfo(Class<T> clazz, Method<T> method, float nbArgs, float posOpts) {
         int nba = (int) nbArgs;
-        Class<?>[] args = new Class<?>[] {TeXParser.class, String[].class};
-
+        String className = clazz.getName();
         try {
             Object pack = Packages.get(className);
             if (pack == null) {
-                Class<?> cl = Class.forName(className);
-                pack = cl.getConstructor(new Class[0]).newInstance(new Object[0]);
+                pack = clazz.getConstructor(new Class[0]).newInstance();
                 Packages.put(className, pack);
             }
-            this.pack = pack;
-            this.macro = pack.getClass().getDeclaredMethod(methodName, args);
+            this.pack = (T) pack;
+            this.macro = method;
             this.nbArgs = nba;
             this.hasOptions = true;
             this.posOpts = (int) posOpts;
@@ -125,16 +126,10 @@ public class MacroInfo {
     }
 
     public Object invoke(final TeXParser tp, final String[] args) throws ParseException {
-        Object[] argsMethod = {(Object) tp, (Object) args};
         try {
-            return macro.invoke(pack, argsMethod);
-        } catch (IllegalAccessException e) {
-            throw new ParseException("Problem with command " + args[0] + " at position " + tp.getLine() + ":" + tp.getCol() + "\n", e);
+            return macro.apply(pack, tp, args);
         } catch (IllegalArgumentException e) {
             throw new ParseException("Problem with command " + args[0] + " at position " + tp.getLine() + ":" + tp.getCol() + "\n", e);
-        } catch (InvocationTargetException e) {
-            Throwable th = e.getCause();
-            throw new ParseException("Problem with command " + args[0] + " at position " + tp.getLine() + ":" + tp.getCol() + "\n" + th.getMessage());
         }
     }
 }

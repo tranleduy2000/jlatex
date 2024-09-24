@@ -22,6 +22,6 @@ dependencies {
     implementation project(':jlatexmath')
     implementation project(':jlatexmath-font-cyrillic')
     implementation project(':jlatexmath-font-greek')
-    implementation 'androidx.annotation:annotation:1.7.0'
+    implementation 'androidx.annotation:annotation:1.8.2'
 
 }

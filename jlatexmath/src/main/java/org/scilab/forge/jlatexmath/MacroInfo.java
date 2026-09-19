@@ -57,7 +57,6 @@ public class MacroInfo<T> {
     }
 
     public static HashMap<String, MacroInfo<?>> Commands = new HashMap<>(300);
-    public static HashMap<String, Object> Packages = new HashMap<>();
 
     public T pack;
     public Method<T> macro;
@@ -85,44 +84,6 @@ public class MacroInfo<T> {
 
     public MacroInfo(int nbArgs) {
         this((T) null, null, nbArgs);
-    }
-
-    public MacroInfo(Class<T> clazz, Method<T> method, float nbArgs) {
-        int nba = (int) nbArgs;
-        String className = clazz.getName();
-        try {
-            Object pack = Packages.get(className);
-            if (pack == null) {
-                pack = clazz.getConstructor(new Class[0]).newInstance();
-                Packages.put(className, pack);
-            }
-            this.pack = (T) pack;
-            this.macro = method;
-            this.nbArgs = nba;
-        } catch (Exception e) {
-            System.err.println("Cannot load package " + className + ":");
-            System.err.println(e.toString());
-        }
-    }
-
-    public MacroInfo(Class<T> clazz, Method<T> method, float nbArgs, float posOpts) {
-        int nba = (int) nbArgs;
-        String className = clazz.getName();
-        try {
-            Object pack = Packages.get(className);
-            if (pack == null) {
-                pack = clazz.getConstructor(new Class[0]).newInstance();
-                Packages.put(className, pack);
-            }
-            this.pack = (T) pack;
-            this.macro = method;
-            this.nbArgs = nba;
-            this.hasOptions = true;
-            this.posOpts = (int) posOpts;
-        } catch (Exception e) {
-            System.err.println("Cannot load package " + className + ":");
-            System.err.println(e.toString());
-        }
     }
 
     public Object invoke(final TeXParser tp, final String[] args) throws ParseException {
